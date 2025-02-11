@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <section className="grid grid-cols-2 gap-x-7 h-full">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-x-7 h-full">
       <h1 className="col-span-2 text-4xl font-bold mb-6">
         Okereke Clement Kalu
       </h1>
@@ -22,8 +22,7 @@ const Hero = () => {
           concepts in software development generally
         </p>
       </div>
-
-      <div className="h-full relative flex items-center">
+      <div className="relative flex items-center w-full h-64 md:h-full">
         <div className="aspect-square w-full relative">
           <Image
             src={"/inspikalu.jpg"}
@@ -33,6 +32,17 @@ const Hero = () => {
           />
         </div>
       </div>
+
+      {/* <div className="h-full relative flex items-center w-full">
+        <div className="aspect-square w-full relative">
+          <Image
+            src={"/inspikalu.jpg"}
+            alt="Okereke Clement Kalu"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </div> */}
     </section>
   );
 };
