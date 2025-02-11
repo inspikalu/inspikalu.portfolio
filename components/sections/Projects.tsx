@@ -3,7 +3,6 @@ import { FolderIcon, ArrowUpRightFromSquare } from "lucide-react";
 import Link from "next/link";
 import axios from "axios"
 import { basePath } from "@/app/types/constants";
-import { useEffect, useState } from "react";
 import { Project } from "@/app/types/interfaces";
 import { useQuery } from "@tanstack/react-query"
 import Line from "../ui/Line";
