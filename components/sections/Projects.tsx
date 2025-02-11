@@ -13,7 +13,7 @@ const getProjects = async () => {
     const response = await axios.get(`${basePath}/projects?populate=*`)
     return response.data.data
   } catch (error) {
-
+    alert(error)
   }
 }
 
