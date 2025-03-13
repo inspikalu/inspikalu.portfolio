@@ -1,0 +1,52 @@
+---
+import { LuGithub } from "react-icons/lu";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+
+const completedProjects = 3;
+const githubUrl = "https://github.com/inspikalu";
+const linkedInUrl = "https://ng.linkedin.com/in/inspikalu";
+const xUrl = "https://x.com/inspikalu";
+const iconSize = 25;
+---
+
+<!-- <section class="bg-card-background py-8"> -->
+<section class="bg-gradient-to-br from-card-background to-background py-8">
+  <section
+    class="min-h-[90vh] text-text mx-auto w-[90%] flex flex-col md:flex-row items-start md:items-center gap-6"
+  >
+    <div class="flex flex-col items-start gap-3">
+      <h2 class="text-primary font-extrabold">Hello, My name is</h2>
+      <h1 class="text-3xl font-bold">Okereke Clement Kalu</h1>
+      <p>
+        "Hi, I'm Clement—a frontend developer passionate about building sleek,
+        user-friendly, and high-performance websites. I've completed {
+          completedProjects
+        } projects and specialize in modern, responsive web development.
+      </p>
+      <button
+        type="button"
+        class="bg-primary p-2 rounded-md cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-primary text-button-text"
+        >Contact Me</button
+      >
+      <div class="flex items-center gap-3">
+        <a href={githubUrl} aria-label="GitHub Profile">
+          <LuGithub size={iconSize} />
+        </a>
+        <a href={xUrl} aria-label="Twitter Profile">
+          <FaXTwitter size={iconSize} />
+        </a>
+        <a href={linkedInUrl} aria-label="LinkedIn Profile">
+          <FaLinkedinIn size={iconSize} />
+        </a>
+      </div>
+    </div>
+    <div class="aspect-square h-100 md:h-120 rounded-sm">
+      <img
+        src="/inspikalu.jpeg"
+        alt="Portrait of Okereke Clement Kalu, a frontend developer"
+        class="w-full h-full object-cover object-top"
+      />
+    </div>
+  </section>
+</section>

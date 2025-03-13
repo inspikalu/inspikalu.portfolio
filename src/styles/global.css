@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+html{
+  scroll-behavior: smooth;
+}
+/* Light Theme Variables */
+/* :root {
+  --color-background: #ffffff;
+  --color-primary: #d72638;
+  --color-text: #0d0d0d;
+  --color-secondary-text: #4a4a4a;
+  --color-card-background: #f7f7f7;
+  --color-button-background: #d72638;
+  --color-button-text: #ffffff;
+} */
+
+/* TODDO: Add Dark Theme */
+@theme {
+  --color-background: #0d0d0d;
+  --color-primary: #d72638;
+  --color-text: #ffffff;
+  --color-secondary-text: #b0b0b0;
+  --color-card-background: #1a1a1a;
+  --color-button-background: #d72638;
+  --color-button-text: #ffffff;
+}

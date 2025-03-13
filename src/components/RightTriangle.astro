@@ -1,0 +1,27 @@
+---
+const { fill, size } = Astro.props;
+
+// Original dimensions
+const originalWidth = 69;
+const originalHeight = 78;
+
+// Calculate aspect ratio
+const aspectRatio = originalHeight / originalWidth;
+
+// If size is provided, use it as width and calculate height
+// Otherwise use original dimensions
+const width = size || originalWidth;
+const height = Math.round(width * aspectRatio);
+---
+
+<svg
+  width={width}
+  height={height}
+  viewBox="0 0 69 78"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M65 32.0718C70.3333 35.151 70.3333 42.849 65 45.9282L12.5 76.2391C7.16668 79.3183 0.499999 75.4693 0.499999 69.3109L0.500002 8.68913C0.500002 2.53072 7.16667 -1.3183 12.5 1.7609L65 32.0718Z"
+    fill={fill}></path>
+</svg>

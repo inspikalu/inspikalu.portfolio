@@ -1,0 +1,94 @@
+---
+import RightTriangle from "./RightTriangle.astro";
+import { client } from "../../tina/__generated__/client";
+import type { Project } from "../../tina/__generated__/types";
+
+// Fetch projects
+const response = await client.queries.projectConnection();
+const projects = (response.data.projectConnection.edges ?? [])
+  .map((edge) => edge?.node as Project | undefined)
+  .filter((project): project is Project => Boolean(project));
+
+// Sort projects by priority (lower numbers come first)
+const sortedProjects = [...projects].sort(
+  (a, b) => ((a?.priority ?? 0) - (b?.priority ?? 0))
+);
+
+// Get only featured projects
+const featuredProjects = sortedProjects.filter((project) => project.featured);
+---
+
+<section class="bg-background py-8" id="projects">
+  <section
+    class="flex flex-col mx-auto w-[90%] text-text items-start gap-8 min-h-[90vh]"
+  >
+    <div class="w-full flex flex-col gap-3">
+      <h2 class="text-primary font-extrabold flex items-center gap-2">
+        <RightTriangle fill="#d72638" size="13" /> My Work
+      </h2>
+      <div class="flex justify-between items-center w-full">
+        <h2 class="text-3xl font-bold">Featured Projects</h2>
+        <a 
+          href="/projects" 
+          class="text-primary hover:underline flex items-center gap-1"
+        >
+          View All Projects
+          <span>→</span>
+        </a>
+      </div>
+      
+      {featuredProjects.length === 0 ? (
+        <p class="text-text/70 italic">No featured projects yet.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {featuredProjects.map((project) => (
+            <div class="bg-card-background rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="relative">
+                <img 
+                  src={project.image} 
+                  alt={`Screenshot of ${project.title} project`} 
+                  class="w-full h-48 object-cover"
+                />
+                <div class="absolute top-3 right-3 bg-primary text-button-text text-xs font-bold px-2 py-1 rounded">
+                  Featured
+                </div>
+              </div>
+              <div class="p-4 flex flex-col gap-3">
+                <h3 class="text-xl font-bold">{project.title}</h3>
+                <p class="text-text/80 text-sm">{project.description}</p>
+                <div class="flex gap-3 mt-3">
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="bg-primary text-button-text px-3 py-1 rounded text-sm hover:opacity-90 transition-opacity"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="bg-background text-text px-3 py-1 rounded text-sm border border-primary hover:bg-primary/10 transition-colors"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+
+    {projects.length === 0 && (
+      <div class="w-full flex justify-center items-center py-12">
+        <p class="text-text/70 text-lg italic">Projects coming soon...</p>
+      </div>
+    )}
+  </section>
+</section>

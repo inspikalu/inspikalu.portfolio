@@ -1,0 +1,101 @@
+---
+import RightTriangle from "./RightTriangle.astro";
+const techStack = [
+  { label: "Html5", imageUrl: "/html5.png" },
+  { label: "CSS3", imageUrl: "/css3.png" },
+  { label: "JavaScript", imageUrl: "/js.png" },
+  { label: "Typescript", imageUrl: "/ts.png" },
+  { label: "Astro", imageUrl: "/astro.svg" },
+  { label: "Next.js", imageUrl: "/next.js.png" },
+  { label: "Sass", imageUrl: "/sass.png" },
+];
+const funFacts = [
+  "I work best at night – yes, I’m basically nocturnal!",
+  "I love crafting sleek and responsive web designs.",
+  "When I'm not coding, I'm probably gaming or learning something new.",
+  "Coffee fuels my creativity and late-night coding sessions.",
+  "I'm always looking for the next cool tech to explore!",
+];
+---
+
+<style>
+  h2,
+  h3,
+  h1 {
+    padding-bottom: 0.8rem;
+  }
+  li {
+    padding-bottom: 0.2rem;
+  }
+</style>
+
+<section class="bg-card-background py-8" id={"about"}>
+  <section
+    class="flex flex-col md:flex-row mx-auto w-[90%] text-text items-start md:items-center gap-6"
+  >
+    <div class="aspect-square h-100 md:h-120 rounded-sm">
+      <img
+        src="/inspikalu.jpeg"
+        alt="Okereke Clement Kalu, a frontend developer, smiling in a professional photo"
+        class="w-full h-full object-cover object-top"
+      />
+    </div>
+    <div class="flex flex-col items-start gap-4">
+      <h2 class="text-primary font-extrabold flex items-center gap-2">
+        <RightTriangle fill="#d72638" size="13" /> About Me
+      </h2>
+      <article>
+        <h3 class="text-3xl font-bold">Who am I</h3>
+        <p>
+          I'm Clement, a frontend developer dedicated to crafting clean,
+          responsive, and user-friendly web experiences. With a strong
+          foundation in modern web technologies, I specialize in turning ideas
+          into interactive, high-performance websites. I have worked on a number
+          of projects, honing my skills in building scalable and visually
+          appealing interfaces. Currently, I’m seeking an internship opportunity
+          to further refine my expertise and collaborate on innovative projects.
+          When I’m not coding, you’ll find me exploring new design trends,
+          learning emerging technologies, or improving my problem-solving
+          skills. Let's connect and build something amazing together!
+        </p>
+      </article>
+      <article>
+        <h3 class="text-3xl font-bold">Fun Facts About Me</h3>
+        <ul class="pl-4" role="list">
+          {
+            funFacts.map((item) => (
+              <li role="listitem" class="flex items-center gap-3">
+                <RightTriangle fill="#d72638" size="13" /> {item}
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+      <article>
+        <h3 class="text-3xl font-bold">Tech Stack</h3>
+        <div
+          class="w-full bg-background flex flex-wrap items-start justify-start gap-5 p-3 rounded-md"
+        >
+          {
+            techStack.map((item, index) => (
+              <figure class="flex items-center bg-card-background p-3 gap-2 rounded-md">
+                <img
+                  src={item.imageUrl}
+                  alt={`Icon representing ${item.label} technology`}
+                  class="aspect-square w-8"
+                />
+                <figcaption>{item.label}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </article>
+      <button
+        aria-label="Download my CV"
+        type="button"
+        class="bg-primary p-2 rounded-md cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-primary text-button-text"
+        >Download CV</button
+      >
+    </div>
+  </section>
+</section>
