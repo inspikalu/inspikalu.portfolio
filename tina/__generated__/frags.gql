@@ -1,0 +1,24 @@
+fragment ProjectParts on Project {
+  __typename
+  title
+  description
+  liveUrl
+  githubUrl
+  image
+  featured
+  priority
+}
+
+fragment ExperienceParts on Experience {
+  __typename
+  title
+  company
+  location
+  startDate
+  endDate
+  current
+  description
+  tags
+  type
+  priority
+}
