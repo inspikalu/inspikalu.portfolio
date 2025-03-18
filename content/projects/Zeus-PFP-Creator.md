@@ -6,5 +6,7 @@ description: >-
 liveUrl: 'https://zeus-pfp.vercel.app/'
 githubUrl: 'https://github.com/inspikalu/pfp-creator/tree/main'
 image: /Screenshot from 2025-03-18 22-38-39.png
+featured: true
+priority: 5
 ---
 
