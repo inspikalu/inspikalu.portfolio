@@ -10,7 +10,7 @@ description: |
 tags:
   - CSS
   - HTML
-type: Volunteer
+type: Work
 priority: -1
 ---
 
